@@ -311,7 +311,8 @@ def bar_panels(
 
     x = list(range(len(cats)))
     fig = plt.figure(figsize=(max(10, len(cats) * 0.45), 7))
-    gs = fig.add_gridspec(2, 1, height_ratios=[2, 1.2], hspace=0.28)
+    #gs = fig.add_gridspec(2, 1, height_ratios=[2, 1.2], hspace=0.28)
+    gs = fig.add_gridspec(1, 1, height_ratios=[1], hspace=0.28)
 
     # ---- Top panel ----
     ax1 = fig.add_subplot(gs[0, 0])
@@ -456,16 +457,16 @@ def bar_panels(
             )
         ax1.legend(handles=[handle_A, handle_B], loc="best")
 
-    # ---- Bottom panel: differences per category ----
-    ax2 = fig.add_subplot(gs[1, 0])
-    ax2.bar(x, D, color=colors_B, edgecolor="black", linewidth=0.6)
-    ax2.axhline(0, linestyle="--", linewidth=1)
-    ax2.set_ylabel(f"Δ(B−A) {metric_label}")
-    ax2.set_xticks(x)
-    ax2.set_xticklabels(
-        maybe_truncate(cats, truncate), rotation=rotate, ha="right", fontsize=fontsize
-    )
-    ax2.grid(axis="y", linestyle=":", alpha=0.5)
+    ## ---- Bottom panel: differences per category ----
+    #ax2 = fig.add_subplot(gs[1, 0])
+    #ax2.bar(x, D, color=colors_B, edgecolor="black", linewidth=0.6)
+    #ax2.axhline(0, linestyle="--", linewidth=1)
+    #ax2.set_ylabel(f"Δ(B−A) {metric_label}")
+    #ax2.set_xticks(x)
+    #ax2.set_xticklabels(
+        #maybe_truncate(cats, truncate), rotation=rotate, ha="right", fontsize=fontsize
+    #)
+    #ax2.grid(axis="y", linestyle=":", alpha=0.5)
 
     if title:
         fig.suptitle(title)
